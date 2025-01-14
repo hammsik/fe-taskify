@@ -6,7 +6,8 @@ import { autoResize, limitTextLength } from './textAreaHelper.js';
  * 카드 생성 함수
  * @param {string} mode - 카드 모드
  * @param {Card} cardData - 카드 데이터
- * @param {function} columnState - 컬럼 상태
+ * @param {object} columnState - 컬럼 상태
+//  * @param {function} addMouseEvent - 카드 드래그 관련 이벤트 추가 함수
  * @returns {DocumentFragment} - 카드 요소를 포함하는 DocumentFragment
  */
 

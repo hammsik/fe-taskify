@@ -20,8 +20,9 @@ import Card from './card.js';
 /**
  * 컬럼 컴포넌트
  * @param {Column} columnData - 컬럼 데이터
+ * @param {function} addMouseEvent - 카드 드래그 관련 이벤트 추가 함수
  */
-const Column = (columnData) => {
+const Column = (columnData, addMouseEvent) => {
   const column = document
     .getElementById('column-template')
     .content.cloneNode(true);
@@ -44,7 +45,9 @@ const Column = (columnData) => {
     columnState.getState().cards.length;
 
   columnData.cards.forEach((cardData) => {
-    columnElement.appendChild(createCard('default', cardData, columnState));
+    const cardElement = createCard('default', cardData, columnState);
+    addMouseEvent(cardElement.querySelector('li'));
+    columnElement.appendChild(cardElement);
   });
 
   columnElement.querySelector('#add-card').addEventListener('click', (e) => {
